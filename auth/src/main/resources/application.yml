@@ -26,3 +26,6 @@ spring:
     username: postgres
     password: postgres
 
+jwt:
+  config:
+    type: signed

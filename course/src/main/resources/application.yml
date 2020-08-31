@@ -25,3 +25,6 @@ spring:
     url: jdbc:postgresql://localhost:5432/course?serverTimeZone=America/Sao_Paulo&createDatabaseIfNotExist=True&useSSL=false
     username: postgres
     password: postgres
+jwt:
+  config:
+    type: signed

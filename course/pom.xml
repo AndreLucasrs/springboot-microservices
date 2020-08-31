@@ -14,15 +14,22 @@
     <name>course</name>
     <description>Spring Boot Microservices</description>
 
-<!--    <properties>-->
-<!--        <java.version>1.8</java.version>-->
-<!--    </properties>-->
+    <properties>
+        <java.version>1.8</java.version>
+        <devdojo-core.version>1.0-SNAPSHOT</devdojo-core.version>
+        <devdojo-token.version>1.0-SNAPSHOT</devdojo-token.version>
+    </properties>
 
     <dependencies>
         <dependency>
             <groupId>academy.devdojo</groupId>
+            <artifactId>token</artifactId>
+            <version>${devdojo-token.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>academy.devdojo</groupId>
             <artifactId>core</artifactId>
-            <version>1.0-SNAPSHOT</version>
+            <version>${devdojo-core.version}</version>
         </dependency>
     </dependencies>
 
