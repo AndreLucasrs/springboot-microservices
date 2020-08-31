@@ -47,7 +47,7 @@ public class TokenConverter {
 
         log.info("Public key retrieved, validating signature...");
 
-        if(!signedJWT.verify(new RSASSAVerifier(publicKey))) {
+        if (!signedJWT.verify(new RSASSAVerifier(publicKey))) {
             throw new AccessDeniedException("Invalid token signature");
         }
 
