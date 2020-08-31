@@ -1,5 +1,6 @@
 package academy.devdojo.auth.security.config;
 
+import academy.devdojo.auth.security.filter.JwtUserNameAndPasswordAuthenticationFilter;
 import academy.devdojo.core.property.JwtConfiguration;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,12 +34,11 @@ public class SecurityCredentialsConfig extends WebSecurityConfigurerAdapter {
                 .and()
                 .exceptionHandling().authenticationEntryPoint((request, response, execption) -> response.sendError(HttpServletResponse.SC_UNAUTHORIZED))
                 .and()
-                .addFilter(new UsernamePasswordAuthenticationFilter())
+                .addFilter(new JwtUserNameAndPasswordAuthenticationFilter(authenticationManager(), jwtConfiguration))
                 .authorizeRequests()
                 .antMatchers(jwtConfiguration.getLoginUrl()).permitAll()
                 .antMatchers("/course/admin/**").hasRole("ADMIN")
                 .anyRequest().authenticated();
-        super.configure(http);
     }
 
     @Override
